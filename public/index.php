@@ -8,5 +8,10 @@
 
 	$router->add('',['controller' => 'Home', 'action' => 'index']);
 
-	print_r($router->getRoutes());
+	$url = $_SERVER['QUERY_STRING'];
+	if( $router->match($url)){
+		print_r($router->getParams());
+	}else{
+		print_r ("route not found");
+	}
 ?>
