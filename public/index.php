@@ -5,6 +5,8 @@
 	require '../core/Router.php';
 
 	$router = new Router();
-	echo get_class($router);
 
+	$router->add('',['controller' => 'Home', 'action' => 'index']);
+
+	print_r($router->getRoutes());
 ?>
