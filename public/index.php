@@ -2,10 +2,18 @@
 	/**
 	 * This is front controller
 	 */
-	require '../app/controllers/Posts.php';
-	require '../core/Router.php';
+	// require '../app/controllers/Posts.php';
+	// require '../core/Router.php';
 
-	$router = new Router();
+	spl_autoload_register(function($className){
+		$root = dirname(__DIR__); //get parent directory
+		$file = $root . "/". str_replace('\\','/', $className).".php";
+		if(is_readable($file)){
+			require $file;
+		}
+	});
+
+	$router = new Core\Router();
 
 	$router->add('', ['controller' => 'Home', 'action' => 'index']);
 	$router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
