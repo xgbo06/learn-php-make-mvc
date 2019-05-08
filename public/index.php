@@ -9,12 +9,8 @@
 		$root = __DIR__;
 		$root = dirname(__DIR__); //get parent directory
 		$file = $root . "/". str_replace('\\','/', $className).".php";
-		$file = $root . "\\". ( $className).".php";
 		$file = ($file);
-		echo $file;
-		echo "<br>Done<br>";
 		if(is_readable($file)){
-			echo "$file is readable";
 			require $file;
 		}
 	});
