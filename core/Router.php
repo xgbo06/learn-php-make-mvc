@@ -87,6 +87,8 @@ class Router{
      */
     public function dispatch($url)
     {
+        $url = $this->removeQueryStringVariables($url);
+
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
@@ -121,4 +123,25 @@ class Router{
     {
         return lcfirst($this->convertToStudlyCaps($string));
     }
+
+    /**
+     * We have used .htaccess to remove ? from the url
+     * our URL format is controller/action now if we want to pass some query string it will be considred as action
+     * ctrl/action?id=909082kx
+     * our normal function will treat as method to call on controller (action?id=909082kx)
+     * so we need to remove this
+     */
+
+     protected function removeQueryStringVariables($url){
+         if($url != ''){
+            $parts = explode('&',$url, 2);
+            if( strpos($parts[0], '=') === false){
+                $url = $parts[0];
+            }else{
+                $url = '';
+            }
+         }
+
+         return $url;
+     }
 }
