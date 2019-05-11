@@ -10,7 +10,7 @@ class Posts extends \Core\Controller
      *
      * @return void
      */
-    public function index()
+    public function indexAction()
     {
         echo 'Hello from the index action in the Posts controller!';
         echo "<p>query string </p> <pre>".
@@ -22,12 +22,12 @@ class Posts extends \Core\Controller
      *
      * @return void
      */
-    public function addNew()
+    public function addNewAction()
     {
         echo 'Hello from the addNew action in the Posts controller!';
     }
 
-    public function edit()
+    public function editAction()
     {
         echo 'Hello from the index action in the Posts controller!';
         echo "<p>query string </p> <pre>".
