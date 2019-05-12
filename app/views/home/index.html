@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Home</title>
-    </head>
-    <body>
-        <h5>Welcome to Home {{name}}</h5>
+{% block title %} 
+    Home
+{% endblock%}
+
+{% block body %}
+        <h3> Welcome {{name}}</h3>    
+
         <ul>
             {% for num in number %}
                 <li> {{num}} </li>
             {% endfor %}
         </ul>
-    </body>
-
-</html>
+{% endblock %}
