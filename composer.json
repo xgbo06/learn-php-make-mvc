@@ -1,0 +1,8 @@
+{
+    "name": "xgbo06/learn-php-mvc",
+    "description": "This is just a learning project for me to try out mvc form scratch",
+    "license": "MIT",
+    "require": {
+        "twig/twig": "^2.0"
+    }
+}
