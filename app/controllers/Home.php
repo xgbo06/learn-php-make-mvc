@@ -29,7 +29,10 @@ class Home extends \Core\Controller{
 
     public function indexAction(){
         // echo "I am Home-Controllers index";
-        View::render("Home/index.php");
+        View::render("Home/index.php", [
+            "name" => "Ravi",
+            "number" => [3,5,17]
+        ]);
     }
 
 }
