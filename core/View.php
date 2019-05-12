@@ -20,4 +20,17 @@ class View{
         }
     }
 
+    /**
+     * This will render template using twing
+     */
+    public static function renderTwig($template, $args = []){
+        static $twig  = null;
+        if($twig === null){
+            $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__).'/app/views');
+            $twig = new \Twig\Environment($loader);
+        }
+
+        echo $twig->render($template, $args); 
+    }
+
 }

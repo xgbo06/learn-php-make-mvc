@@ -5,6 +5,13 @@
 	// require '../app/controllers/Posts.php';
 	// require '../core/Router.php';
 
+	/**
+	 * using composer as dependency mgmt
+	 * using twing for templating engine
+	 */
+	require_once '../vendor/autoload.php';
+
+
 	spl_autoload_register(function($className){
 		$root = __DIR__;
 		$root = dirname(__DIR__); //get parent directory

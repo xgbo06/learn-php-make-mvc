@@ -29,7 +29,13 @@ class Home extends \Core\Controller{
 
     public function indexAction(){
         // echo "I am Home-Controllers index";
-        View::render("Home/index.php", [
+        // View::render("Home/index.php", [
+        //     "name" => "Ravi",
+        //     "number" => [3,5,17]
+        // ]);
+
+        /** Lets use twig */
+        View::renderTwig("Home/index.html",[
             "name" => "Ravi",
             "number" => [3,5,17]
         ]);
