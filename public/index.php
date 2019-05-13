@@ -11,16 +11,16 @@
 	 */
 	require_once '../vendor/autoload.php';
 
-
-	spl_autoload_register(function($className){
-		$root = __DIR__;
-		$root = dirname(__DIR__); //get parent directory
-		$file = $root . "/". str_replace('\\','/', $className).".php";
-		$file = ($file);
-		if(is_readable($file)){
-			require $file;
-		}
-	});
+	/** using composer autoload */
+	// spl_autoload_register(function($className){
+	// 	$root = __DIR__;
+	// 	$root = dirname(__DIR__); //get parent directory
+	// 	$file = $root . "/". str_replace('\\','/', $className).".php";
+	// 	$file = ($file);
+	// 	if(is_readable($file)){
+	// 		require $file;
+	// 	}
+	// });
 
 	$router = new Core\Router();
 

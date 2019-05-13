@@ -4,5 +4,11 @@
     "license": "MIT",
     "require": {
         "twig/twig": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Core\\" :"core/",
+            "App\\" : "app/"
+        }
     }
 }
