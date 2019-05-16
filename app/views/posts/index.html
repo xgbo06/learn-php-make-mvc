@@ -7,4 +7,13 @@
 {% block body %}
         <h3> Welcome your post will be seen here</h3>    
 
+        <h1>Posts</h1>
+
+        <ul>
+            {% for post in posts %}
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+            {% endfor %}
+        </ul>
+        
 {% endblock %}
