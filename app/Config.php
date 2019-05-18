@@ -32,6 +32,6 @@ class Config{
      * to show error or not on view
      * @var boolean
      */
-    const SHOW_ERRORS = false;
+    const SHOW_ERRORS = true;
 
 }
