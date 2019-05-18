@@ -20,11 +20,28 @@ class Error{
     }
 
     public static function exceptionHandler($exception){
-        echo "<h2> Fatal Error !</h2>";
-        echo "<p> Uncaught exception ".get_class($exception)." </p>";
-        echo "<p> Message : ".$exception->getMessage()." </p>";
-        echo "<p> Stack trace ".$exception->getTraceAsString()." </p>";
-        echo "<p> Thrown in ".$exception->getFile()." on line number ".$exception->getLine()." </p>";
+
+        if(\App\Config::SHOW_ERRORS){
+            echo "<h2> Fatal Error !</h2>";
+            echo "<p> Uncaught exception ".get_class($exception)." </p>";
+            echo "<p> Message : ".$exception->getMessage()." </p>";
+            echo "<p> Stack trace ".$exception->getTraceAsString()." </p>";
+            echo "<p> Thrown in ".$exception->getFile()." on line number ".$exception->getLine()." </p>";
+        }else{
+            $log = dirname(__DIR__).'\\logs\\'.date('Y-m-d').'.txt';
+            echo $log;
+            ini_set('error_log',$log);
+
+
+            $message = "<p> Uncaught exception ".get_class($exception)." </p>";
+            $message .= "<p> Message : ".$exception->getMessage()." </p>";
+            $message .= "<p> Stack trace ".$exception->getTraceAsString()." </p>";
+            $message .= "<p> Thrown in ".$exception->getFile()." on line number ".$exception->getLine()." </p>";
+            
+            error_log($message);
+            echo "<h2>An error occured</h2>";
+
+        }
 
     }
 
