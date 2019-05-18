@@ -22,6 +22,12 @@
 	// 	}
 	// });
 
+	/**
+	 * Error and Exception handiling
+	 */
+	set_error_handler("\Core\Error::errorHandler");
+	set_exception_handler("\Core\Error::exceptionHandler");
+
 	$router = new Core\Router();
 
 	$router->add('', ['controller' => 'Home', 'action' => 'index']);
