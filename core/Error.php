@@ -21,6 +21,12 @@ class Error{
 
     public static function exceptionHandler($exception){
 
+        $code = $exception->getCode();
+        if($code != 404){
+            $code = 500;
+        }
+        http_response_code($code);
+
         if(\App\Config::SHOW_ERRORS){
             echo "<h2> Fatal Error !</h2>";
             echo "<p> Uncaught exception ".get_class($exception)." </p>";
@@ -39,7 +45,12 @@ class Error{
             $message .= "<p> Thrown in ".$exception->getFile()." on line number ".$exception->getLine()." </p>";
             
             error_log($message);
-            echo "<h2>An error occured</h2>";
+
+            if($code == 404){
+                echo "<h2>Page not found</h2>";
+            }else{
+                echo "<h2>An error occured</h2>";
+            }
 
         }
 
